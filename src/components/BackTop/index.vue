@@ -3,7 +3,7 @@ import { ref, onMounted, onBeforeUnmount, reactive, watch, computed } from "vue"
 import { storeToRefs } from "pinia";
 import { staticData } from "@/store/index.js";
 import { debounce } from "@/utils/tool.js";
-
+// test
 const { mainTheme } = storeToRefs(staticData());
 const isFirst = ref(true);
 const props = defineProps({
@@ -89,17 +89,10 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div
-    v-if="!isFirst"
-    :class="[backTopShow ? 'back-top-show' : 'back-top-hidden', 'back-top']"
-    :style="`bottom: ${backTopProps.bottom};right:${backTopProps.right};`"
-  >
-    <svg-icon
-      :style="{ transform: `rotateZ(${props.rotateDeg}deg)` }"
-      :name="svgThemeName"
-      :width="svgWidth"
-      @click="scrollToTop"
-    ></svg-icon>
+  <div v-if="!isFirst" :class="[backTopShow ? 'back-top-show' : 'back-top-hidden', 'back-top']"
+    :style="`bottom: ${backTopProps.bottom};right:${backTopProps.right};`">
+    <svg-icon :style="{ transform: `rotateZ(${props.rotateDeg}deg)` }" :name="svgThemeName" :width="svgWidth"
+      @click="scrollToTop"></svg-icon>
   </div>
 </template>
 
@@ -108,13 +101,16 @@ onBeforeUnmount(() => {
   position: fixed;
   overflow: hidden;
   transition: all ease-in-out 0.3s;
+
   &-show {
     animation: show 0.8s ease-in-out forwards;
   }
+
   &-hidden {
     animation: hide 0.8s ease-in-out forwards;
   }
 }
+
 @keyframes show {
   0% {
     transform: translateX(0);
