@@ -77,7 +77,7 @@ const showMoralPopup = (event) => {
   // 创建一个新的div元素
   const popup = document.createElement('div');
 
-  // 设置元素内容
+  // 设置弹出内容
   popup.textContent = '道德+1';
 
   // 获取点击位置
@@ -158,7 +158,7 @@ onMounted(() => {
     <!-- 简单的木鱼图标 -->
     <!-- 木鱼logo占位 -->
     <div class="wooden-fish-icon">
-      道德
+      <img src="./../../icons/svg/woodFish.svg" />
     </div>
   </div>
 </template>
@@ -172,14 +172,10 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px;
-  background-color: rgba(222, 184, 135, 0.95);
-  border-radius: 50%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 100px;
 
   &:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
   }
 
   &:active {
@@ -188,14 +184,11 @@ onMounted(() => {
 }
 
 .wooden-fish-icon {
-  width: 60px;
-  height: 60px;
+  width: 15px;
+  height: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
   font-weight: bold;
-  color: #8B4513;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 </style>
