@@ -156,6 +156,7 @@ onMounted(() => {
   <div class="wooden-fish-container" :style="`bottom: ${woodenFishProps.bottom}; right: ${woodenFishProps.right};`"
     @click="clickWoodenFish">
     <!-- 简单的木鱼图标 -->
+    <!-- 木鱼logo占位 -->
     <div class="wooden-fish-icon">
       道德
     </div>
