@@ -84,6 +84,8 @@ const showMoralPopup = (event) => {
   const rect = event.currentTarget.getBoundingClientRect();
 
   // 设置内联样式，确保元素显示在最上层
+  // 更新了文字样式
+
   popup.style.cssText = `
     position: fixed;
     left: ${rect.left + rect.width / 2 - 25}px;
