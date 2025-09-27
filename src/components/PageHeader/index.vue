@@ -23,7 +23,7 @@ const props = defineProps({
   },
   article: {
     type: Object,
-    default: () => {},
+    default: () => { },
   },
   bgUrl: {
     type: String,
@@ -103,14 +103,7 @@ watch(
   <div v-else class="page-header" :style="getBgCover">
     <div v-if="route.path == '/article'" class="article main-article">
       <div class="loading" v-image="props.article.article_cover"></div>
-      <Tooltip
-        width="80%"
-        weight="500"
-        size="2.4rem"
-        color="#fff"
-        align="center"
-        :name="article.article_title"
-      />
+      <Tooltip width="80%" weight="500" size="2.4rem" color="#fff" align="center" :name="article.article_title" />
       <div class="!mt-[20px]">
         <span class="to_pointer">
           <i class="iconfont icon-calendar2"></i>
@@ -132,17 +125,13 @@ watch(
           <i class="iconfont icon-label_fill"></i>
           <span class="meta-value" v-for="(item, index) in article.tagNameList" :key="item">{{
             index + 1 == article.tagNameList.length ? item : item + "、"
-          }}</span>
+            }}</span>
         </span>
         <span class="meta-separator"></span>
         <span class="to_pointer">
           <i class="iconfont icon-icon1"></i>
           <span class="meta-label">点赞数</span>
-          <GsapCount
-            class="meta-value"
-            v-if="article.thumbs_up_times - 0 < 1000"
-            :value="article.thumbs_up_times"
-          />
+          <GsapCount class="meta-value" v-if="article.thumbs_up_times - 0 < 1000" :value="article.thumbs_up_times" />
           <span v-else class="meta-value">
             {{ numberFormate(article.thumbs_up_times) }}
           </span>
@@ -151,11 +140,7 @@ watch(
         <span class="to_pointer">
           <i class="iconfont icon-chakan"></i>
           <span class="meta-label">浏览次数</span>
-          <GsapCount
-            class="meta-value"
-            v-if="article.view_times - 0 < 1000"
-            :value="article.view_times"
-          />
+          <GsapCount class="meta-value" v-if="article.view_times - 0 < 1000" :value="article.view_times" />
           <span v-else class="meta-value">{{ numberFormate(article.view_times) }}</span>
         </span>
         <span class="meta-separator"></span>
@@ -173,12 +158,8 @@ watch(
           </div>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item
-                v-for="(item, index) in staticStore.previewThemeList"
-                :key="index"
-                @click="toggleMdTheme('previewTheme', item)"
-                >{{ item }}</el-dropdown-item
-              >
+              <el-dropdown-item v-for="(item, index) in staticStore.previewThemeList" :key="index"
+                @click="toggleMdTheme('previewTheme', item)">{{ item }}</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -189,12 +170,8 @@ watch(
           </div>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item
-                v-for="(item, index) in staticStore.codeThemeList"
-                :key="index"
-                @click="toggleMdTheme('codeTheme', item)"
-                >{{ item }}</el-dropdown-item
-              >
+              <el-dropdown-item v-for="(item, index) in staticStore.codeThemeList" :key="index"
+                @click="toggleMdTheme('codeTheme', item)">{{ item }}</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -296,6 +273,7 @@ watch(
         right: 0;
       }
     }
+
     &-value {
       margin-left: 3px;
     }
@@ -354,6 +332,7 @@ watch(
           line-height: 1.2;
         }
       }
+
       &:hover {
         transform: translateY(-3px);
       }

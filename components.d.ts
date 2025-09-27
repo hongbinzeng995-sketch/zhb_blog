@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     ArticleSkeleton: typeof import('./src/components/HomeArticle/components/article-skeleton.vue')['default']
     AudioControls: typeof import('./src/components/Music/controls/components/audio-controls.vue')['default']
     BackTop: typeof import('./src/components/BackTop/index.vue')['default']
+    Bell: typeof import('./src/components/Bell/index.vue')['default']
     BlogFooter: typeof import('./src/components/Layout/footer/blog-footer.vue')['default']
     BlogHeader: typeof import('./src/components/Layout/header/blog-header.vue')['default']
     BlogMain: typeof import('./src/components/Layout/main/blog-main.vue')['default']
@@ -100,5 +101,6 @@ declare module '@vue/runtime-core' {
     TypeWriter: typeof import('./src/components/TypeWriter/type-writer.vue')['default']
     Upload: typeof import('./src/components/Upload/upload.vue')['default']
     Waves: typeof import('./src/components/WelcomeComps/waves.vue')['default']
+    WoodenFish: typeof import('./src/components/WoodenFish/index.vue')['default']
   }
 }

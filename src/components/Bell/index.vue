@@ -1,7 +1,9 @@
 <template>
-    <div class="bell"></div>
+    <div class="bell">
+        压力+1
+    </div>
 </template>
-<!-- ss  -->
+
 <script></script>
 
 
