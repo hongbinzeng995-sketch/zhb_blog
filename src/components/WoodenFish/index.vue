@@ -39,8 +39,8 @@ const playSound = () => {
     gainNode.connect(audioContext.destination);
 
     oscillator.type = 'sine';
-    oscillator.frequency.value = 800; // 设置频率
-    gainNode.gain.value = 0.1; // 设置音量
+    oscillator.frequency.value = 1000; // 设置频率
+    gainNode.gain.value = 0.9; // 设置音量
 
     // 创建音量淡入淡出效果
     gainNode.gain.setValueAtTime(0, audioContext.currentTime);
@@ -87,9 +87,9 @@ const showMoralPopup = (event) => {
   popup.style.cssText = `
     position: fixed;
     left: ${rect.left + rect.width / 2 - 25}px;
-    top: ${rect.top - 50}px;
-    color: #3c763d;
-    font-size: 24px;
+    top: ${rect.top + 80}px;
+    color: white;
+    font-size: 16px;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     z-index: 999999;
@@ -138,7 +138,7 @@ onMounted(() => {
   // 添加动画样式
   addAnimationStyle();
 
-  // 解锁音频上下文
+  // 解锁音频上下文 执行声音操作
   const unlockAudioContext = () => {
     try {
       const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -155,8 +155,6 @@ onMounted(() => {
 <template>
   <div class="wooden-fish-container" :style="`bottom: ${woodenFishProps.bottom}; right: ${woodenFishProps.right};`"
     @click="clickWoodenFish">
-    <!-- 简单的木鱼图标 -->
-    <!-- 木鱼logo占位 -->
     <div class="wooden-fish-icon">
       <img src="./../../icons/svg/woodFish.svg" />
     </div>

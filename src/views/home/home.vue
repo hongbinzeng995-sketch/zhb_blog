@@ -16,7 +16,7 @@ import RightSideItem from "@/components/RightSide/components/item/right-side-ite
 import RightSideTop from "@/components/RightSide/components/item/right-side-top.vue";
 import RightSideSkeletonItem from "@/components/RightSide/components/skeleton/right-side-skeleton-item.vue";
 import { gsapTransY } from "@/utils/transform";
-// 引入木鱼组件
+// 引入木鱼组件 
 import WoodenFish from '@/components/WoodenFish/index.vue';
 // import Bell from "@/components/Bell/index.vue"
 
