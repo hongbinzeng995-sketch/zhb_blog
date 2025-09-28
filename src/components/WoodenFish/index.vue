@@ -26,7 +26,7 @@ const updatePosition = () => {
 };
 
 updatePosition();
-
+// test push 9.28
 // 最简单的声音实现
 const playSound = () => {
   try {
