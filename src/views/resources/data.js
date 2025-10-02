@@ -28,6 +28,17 @@ export const backCategory = {
     desc: "常用的一些开发工具库",
   },
 };
+// 学习资料分类
+export const learnCategory = {
+  language:{
+    name:"学习",
+    desc:"花生十三"
+  },
+  utils:{
+    name:"资料库",
+    desc:"公众号:花生十三"
+  }
+}
 
 // 前端网站
 export const frontSite = {
