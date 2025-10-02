@@ -1,7 +1,7 @@
 // 前端分类
 export const frontCategory = {
   languageFramework: {
-    name: "前端框架",
+    name: "前端学习",
     desc: "前端开发相关的一些js框架",
   },
   UIFramework: {
@@ -9,11 +9,11 @@ export const frontCategory = {
     desc: "常用的UI框架",
   },
   studying: {
-    name: "学习",
-    desc: "学习前端",
+    name: "考公学习",
+    desc: "记录和分享一些考公心得和资料",
   },
   recommand: {
-    name: "推荐网站",
+    name: "电影网站",
     desc: "试一试吧，万一发现了新大陆呢",
   },
 };
@@ -21,7 +21,7 @@ export const frontCategory = {
 export const backCategory = {
   language: {
     name: "语言",
-    desc: "后端主流语言",
+    desc: "go/java/nodejs",
   },
   utils: {
     name: "工具",

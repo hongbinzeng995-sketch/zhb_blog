@@ -164,7 +164,7 @@ onBeforeUnmount(() => {
                 <div class="flex-1 !ml-[2rem]">
                   <span :title="item.site_name" class="name" @click="goToSite(item.url)">{{
                     item.site_name
-                    }}</span>
+                  }}</span>
                 </div>
               </div>
               <div class="bottom">

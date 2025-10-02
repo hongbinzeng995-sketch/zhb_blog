@@ -128,6 +128,13 @@ const routes = [
             },
             component: () => import("@/views/resources/category-list.vue"),
           },
+          {
+            path:"/resources/learn",
+            name:"Learn",
+            meta:{
+              name:"学习资料"
+            }
+          }
         ],
       },
       {
