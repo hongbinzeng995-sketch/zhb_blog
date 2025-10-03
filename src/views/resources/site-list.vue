@@ -2,7 +2,7 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
-import { frontSite, backSite, frontCategory, backCategory } from "./data";
+import { frontSite, backSite, frontCategory, backCategory, learnCategory } from "./data";
 import PageHeader from "@/components/PageHeader/index.vue";
 
 const route = useRoute();
@@ -40,6 +40,9 @@ const currentTitle = computed(() => {
     case "back":
       res = "后端";
       break;
+    case "learn":
+      res = "学习资料";
+      break;
   }
   return res;
 });
@@ -57,6 +60,9 @@ onMounted(() => {
         currenCategory.value = backCategory[category].name;
         siteList.value = backSite[category];
         break;
+      case "learn":
+        currenCategory.value = learnCategory[category].name;
+        siteList.value = learnCategory[category];
     }
   }
 });
@@ -71,23 +77,14 @@ onMounted(() => {
         <el-col :xs="12" :sm="6" v-for="(item, index) in siteList" :key="index">
           <el-card class="card-hover">
             <div class="site-item animate__animated animate__fadeIn" @click="goToSite(item.url)">
-              <div
-                class="left"
-                @mouseenter="mouseEnterItem('site', index)"
-                @mouseleave="mouseLeaveItem"
-              >
-                <span
-                  :class="['top', activeType == 'site' && active == index ? 'top-animate' : '']"
-                ></span>
+              <div class="left" @mouseenter="mouseEnterItem('site', index)" @mouseleave="mouseLeaveItem">
+                <span :class="['top', activeType == 'site' && active == index ? 'top-animate' : '']"></span>
                 <el-avatar fit="scale-down" :size="60" :src="returnUrl(item.url)">
-                  <span class="avatar-font" :title="item.name">{{ item.name }}</span></el-avatar
-                >
-                <span
-                  :class="[
-                    'bottom',
-                    activeType == 'site' && active == index ? 'bottom-animate' : '',
-                  ]"
-                ></span>
+                  <span class="avatar-font" :title="item.name">{{ item.name }}</span></el-avatar>
+                <span :class="[
+                  'bottom',
+                  activeType == 'site' && active == index ? 'bottom-animate' : '',
+                ]"></span>
               </div>
               <div class="right">
                 <a :title="item.name" :href="item.url" target="_blank" class="name">{{
@@ -111,6 +108,7 @@ onMounted(() => {
   cursor: pointer;
   text-align: center;
 }
+
 .site {
   &-item {
     display: flex;

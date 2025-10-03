@@ -133,7 +133,8 @@ const routes = [
             name:"Learn",
             meta:{
               name:"学习资料"
-            }
+            },
+            component:() => import("@/views/resources/category-list.vue"),
           }
         ],
       },

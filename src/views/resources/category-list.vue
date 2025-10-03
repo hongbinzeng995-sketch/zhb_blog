@@ -2,14 +2,14 @@
 <script setup>
 import { ref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import { frontCategory, backCategory } from "./data";
+import { frontCategory, backCategory, learnCategory } from "./data";
 import PageHeader from "@/components/PageHeader/index.vue";
 
 const router = useRouter();
 const route = useRoute();
 const active = ref(0);
-const activeType = ref(""); // 当前是哪个分类 前端、后端等
-const routeType = ref(""); // 通过路由判断显示后端还是前端
+const activeType = ref(""); // 当前路由类型:前端、后端、考公
+const routeType = ref(""); //  路由判断 => 前端、后端、考公
 const currenCategory = ref({});
 const title = ref("");
 
@@ -40,6 +40,10 @@ watch(
         title.value = "后端";
         currenCategory.value = backCategory;
         break;
+      case "learn":
+        title.value = "学习资料";
+        currenCategory.value = learnCategory;
+        break;
       default:
         return;
     }
@@ -56,30 +60,18 @@ watch(
     <el-row class="category">
       <el-col :xs="12" :sm="6" v-for="(item, index) in Object.keys(currenCategory)" :key="index">
         <el-card class="card-hover">
-          <div
-            class="category-item animate__animated animate__fadeIn"
-            @click="goToSiteList(routeType, item)"
-          >
-            <div
-              class="left"
-              @mouseenter="mouseEnterItem(routeType, index)"
-              @mouseleave="mouseLeaveItem"
-            >
+          <div class="category-item animate__animated animate__fadeIn" @click="goToSiteList(routeType, item)">
+            <div class="left" @mouseenter="mouseEnterItem(routeType, index)" @mouseleave="mouseLeaveItem">
               <span :class="['top', activeType && active == index ? 'top-animate' : '']"></span>
-              <el-avatar :size="60"
-                ><span>{{ currenCategory[item].name }}</span></el-avatar
-              >
-              <span
-                :class="['bottom', activeType && active == index ? 'bottom-animate' : '']"
-              ></span>
+              <el-avatar :size="60"><span>{{ currenCategory[item].name }}</span></el-avatar>
+              <span :class="['bottom', activeType && active == index ? 'bottom-animate' : '']"></span>
             </div>
             <div class="right">
               <span :title="currenCategory[item].name" class="name">{{
                 currenCategory[item].name
-              }}</span>
+                }}</span>
               <span :title="currenCategory[item].desc" class="desc">
-                {{ currenCategory[item].desc }}</span
-              >
+                {{ currenCategory[item].desc }}</span>
             </div>
           </div>
         </el-card>

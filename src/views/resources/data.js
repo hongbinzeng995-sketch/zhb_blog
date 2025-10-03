@@ -233,3 +233,14 @@ export const backSite = {
     },
   ],
 };
+// 学习资料网站
+export const learnSite = {
+  language:[
+    {
+      name:"learn",
+      url:"/",
+      desc:"加油,你就是下一个公务员!"
+
+    }
+  ]
+}
