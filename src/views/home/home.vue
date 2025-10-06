@@ -18,7 +18,6 @@ import RightSideSkeletonItem from "@/components/RightSide/components/skeleton/ri
 import { gsapTransY } from "@/utils/transform";
 // 引入木鱼组件 
 import WoodenFish from '@/components/WoodenFish/index.vue';
-// import Bell from "@/components/Bell/index.vue"
 
 defineOptions({
   name: "Home",
