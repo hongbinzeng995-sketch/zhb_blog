@@ -1,18 +1,8 @@
 <template>
   <div class="pagination">
-    <el-pagination
-      background
-      :layout="layout"
-      :pager-count="pagerCount"
-      :page-sizes="pageSizes"
-      :page-size="size"
-      :total="total"
-      :currentPage="current"
-      @size-change="sizeChange"
-      @current-change="currentChange"
-      @prev-click="prev"
-      @next-click="next"
-    ></el-pagination>
+    <el-pagination background :layout="layout" :pager-count="pagerCount" :page-sizes="pageSizes" :page-size="size"
+      :total="total" :currentPage="current" @size-change="sizeChange" @current-change="currentChange" @prev-click="prev"
+      @next-click="next"></el-pagination>
   </div>
 </template>
 
@@ -85,12 +75,14 @@ const next = (val) => {
   flex-direction: column;
   align-items: center;
 }
+
 :deep(.el-pagination.is-background .el-pager li:not(.is-disabled).is-active) {
   background-color: #00c4b6;
   color: var(--white);
   cursor: default;
   font-weight: 800;
 }
+
 :deep(.el-pager li) {
   font-weight: 600;
 }

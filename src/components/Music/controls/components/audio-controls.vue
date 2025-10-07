@@ -1,6 +1,4 @@
 <!--
- * @Author: Zhang Yuming
- * @Date: 2023-06-26 15:48:34
  * @Description: 音乐播放器 控制音乐播放、暂停等
  -->
 <script setup>
@@ -59,6 +57,7 @@ onMounted(() => {
   align-items: center;
   justify-content: space-between;
   padding-left: 15%;
+
   .left {
     width: 20%;
     display: flex;
@@ -78,6 +77,7 @@ onMounted(() => {
     }
   }
 }
+
 .iconfont {
   font-size: 1.8rem;
 }
@@ -86,6 +86,7 @@ onMounted(() => {
 .icon-bofangzhong {
   font-size: 2.8rem;
 }
+
 .change-color:hover {
   cursor: pointer;
   color: var(--music-main-active);
@@ -95,9 +96,11 @@ onMounted(() => {
   .audio-controls {
     padding-left: 5% !important;
   }
+
   .left {
     width: 40% !important;
   }
+
   .right {
     width: 60% !important;
   }

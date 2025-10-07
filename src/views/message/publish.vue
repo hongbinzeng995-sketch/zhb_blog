@@ -9,7 +9,6 @@ import { useRouter, useRoute } from "vue-router";
 import { ElNotification } from "element-plus";
 import { user } from "@/store/index";
 import { storeToRefs } from "pinia";
-
 import PageHeader from "@/components/PageHeader/index.vue";
 import { addMessage, updateMessage, getMessageTag } from "@/api/message";
 import { _getLocalItem, _removeLocalItem, _setLocalItem } from "@/utils/tool";
@@ -274,7 +273,7 @@ onMounted(async () => {
         <div class="!h-[4rem] !p-[15px] flex justify-center items-center">
           <el-button :disabled="loading" :loading="loading" class="apply-button !w-[200px]" @click="leaveMessage">{{
             loading ? "努力上传中..." : route.query.type == "edit" ? "保存" : "发布"
-            }}</el-button>
+          }}</el-button>
         </div>
       </div>
     </div>

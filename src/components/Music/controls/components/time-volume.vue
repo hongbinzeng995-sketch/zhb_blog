@@ -1,6 +1,4 @@
 <!--
-* @Author: Zhang Yuming
-* @Date: 2023-07-03 11:48:49
 * @Description: 展示音量、进度等 后续可能加随机播放等
 -->
 <script setup>
@@ -84,15 +82,8 @@ watch(
       </template>
     </el-popover>
     <!-- 歌曲列表 -->
-    <el-popover
-      ref="elPopoverRef"
-      placement="top"
-      :width="350"
-      :show-arrow="false"
-      :teleported="false"
-      trigger="click"
-      @touchmove.stop.prevent
-    >
+    <el-popover ref="elPopoverRef" placement="top" :width="350" :show-arrow="false" :teleported="false" trigger="click"
+      @touchmove.stop.prevent>
       <template #reference>
         <i class="iconfont icon-bofangliebiao change-color"></i>
       </template>
@@ -116,11 +107,13 @@ watch(
     font-size: 1rem;
   }
 }
+
 .getVolume {
   position: absolute;
   top: -22px;
   right: -8px;
 }
+
 .icon-yinliang {
   font-size: 1.6rem;
 }
@@ -132,6 +125,7 @@ watch(
 
 .pop {
   position: relative;
+
   .icon-off-search {
     position: absolute;
     top: 0px;
@@ -164,6 +158,7 @@ watch(
   height: 8px;
   border: solid 2px var(--music-main-active);
 }
+
 :deep(.el-slider__runway) {
   margin: 6px 16px 4px 16px !important;
 }

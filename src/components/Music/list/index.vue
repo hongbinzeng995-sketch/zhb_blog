@@ -192,12 +192,8 @@ onBeforeUnmount(() => {
             <Loading :size="48" />
           </div>
           <template v-else>
-            <el-col
-              class="flex justify-center items-center overflow-auto"
-              :span="6"
-              v-for="item in topList"
-              :key="item.id"
-            >
+            <el-col class="flex justify-center items-center overflow-auto" :span="6" v-for="item in topList"
+              :key="item.id">
               <div class="top" @click="clickTopMusicList(item)">
                 <img class="top-bg" :src="item.coverImgUrl" />
                 <i class="iconfont icon-zanting play"></i>
@@ -210,16 +206,9 @@ onBeforeUnmount(() => {
         <div class="!w-[100%] flex items-center">
           <span v-if="currentTop" class="top-name text-overflow" :title="currentTop.name">{{
             currentTop.name
-          }}</span>
-          <el-popover
-            ref="elPopoverRef"
-            placement="bottom"
-            :width="330"
-            :show-arrow="false"
-            :teleported="false"
-            trigger="click"
-            @touchmove.stop.prevent
-          >
+            }}</span>
+          <el-popover ref="elPopoverRef" placement="bottom" :width="330" :show-arrow="false" :teleported="false"
+            trigger="click" @touchmove.stop.prevent>
             <template #reference>
               <span class="iconfont icon-nav-search scale"></span>
             </template>
@@ -239,12 +228,8 @@ onBeforeUnmount(() => {
             <Loading :size="48" />
           </div>
           <template v-else>
-            <el-col
-              class="flex justify-start items-center overflow-auto"
-              :span="24"
-              v-for="item in currentMusicList"
-              :key="item.id"
-            >
+            <el-col class="flex justify-start items-center overflow-auto" :span="24" v-for="item in currentMusicList"
+              :key="item.id">
               <div class="name" @click="playMusic(item)">
                 <span class="text-overflow" :title="item.name">{{ item.name }}</span>
               </div>
@@ -255,15 +240,12 @@ onBeforeUnmount(() => {
                 <span class="text-overflow" :title="item.alia[0]">{{ item.alia[0] }}</span>
               </div>
               <div class="add-music">
-                <i
-                  :class="[
-                    'iconfont',
-                    'icon-tianjiadao',
-                    'change-color',
-                    item.active ? 'active' : '',
-                  ]"
-                  @click="customerAddMusic(item)"
-                ></i>
+                <i :class="[
+                  'iconfont',
+                  'icon-tianjiadao',
+                  'change-color',
+                  item.active ? 'active' : '',
+                ]" @click="customerAddMusic(item)"></i>
               </div>
             </el-col>
           </template>
@@ -289,6 +271,7 @@ onBeforeUnmount(() => {
   display: flex;
   justify-content: center;
   width: 100%;
+
   .top-name {
     display: inline-block;
     font-size: 1.2rem;
@@ -306,11 +289,13 @@ onBeforeUnmount(() => {
     align-items: flex-start;
     overflow: hidden;
     padding-bottom: 10px;
+
     .header {
       padding-left: 20px;
       font-weight: 600;
       font-size: 1.2rem;
     }
+
     .body {
       width: 100%;
       height: 100%;
@@ -328,44 +313,54 @@ onBeforeUnmount(() => {
     align-items: flex-start;
     overflow: hidden;
     padding-bottom: 10px;
+
     .header {
       width: 100%;
       display: flex;
+
       .title {
         font-weight: 600;
         font-size: 1.1rem;
+
         &1 {
           width: 30%;
           overflow: hidden;
         }
+
         &2 {
           width: 25%;
           overflow: hidden;
         }
+
         &3 {
           overflow: hidden;
           width: 35%;
         }
+
         &4 {
           overflow: hidden;
           width: 15%;
         }
       }
     }
+
     .body {
       width: 100%;
       height: 100%;
       overflow: auto;
     }
   }
+
   .top {
     position: relative;
     width: 80px;
     height: 80px;
+
     &-bg {
       width: 80px;
       height: 80px;
     }
+
     &:hover {
       .play {
         visibility: visible;
@@ -413,6 +408,7 @@ onBeforeUnmount(() => {
   .add-music {
     text-align: center;
     width: 20%;
+
     &:hover {
       color: var(--music-main-active);
     }
@@ -443,6 +439,7 @@ onBeforeUnmount(() => {
     font-size: 1.6rem;
   }
 }
+
 // mobile
 @media screen and (max-width: 768px) {
   .music-list__left {

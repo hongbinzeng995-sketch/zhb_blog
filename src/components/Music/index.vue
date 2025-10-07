@@ -1,8 +1,3 @@
-<!--
-* @Author: Zhang Yuming
-* @Date: 2023-07-03 11:35:38
-* @Description: 播放器首页
--->
 <script setup>
 import { defineComponent, ref, watch, provide, onBeforeUnmount } from "vue";
 
@@ -87,20 +82,14 @@ window.addEventListener("beforeunload", () => {
 </script>
 
 <template>
-  <div
-    :class="[
-      'music',
-      getIsShowMusicPlayer ? 'show-music' : '',
-      !getIsShowMusicPlayer && clickFlag ? 'hide-music' : '',
-    ]"
-  >
+  <div :class="[
+    'music',
+    getIsShowMusicPlayer ? 'show-music' : '',
+    !getIsShowMusicPlayer && clickFlag ? 'hide-music' : '',
+  ]">
     <div class="flex justify-center items-center !w-[100%] !h-[100%]">
       <div class="music-box flex flex-col justify-center items-center">
-        <i
-          v-if="!getShowLyricBoard"
-          class="iconfont icon-off-search dark-close change-color"
-          @click="toggleDisc"
-        ></i>
+        <i v-if="!getShowLyricBoard" class="iconfont icon-off-search dark-close change-color" @click="toggleDisc"></i>
         <!-- 播放器列表 -->
         <MusicList class="list" />
         <!-- 播放器控制器 -->
@@ -109,12 +98,8 @@ window.addEventListener("beforeunload", () => {
     </div>
   </div>
   <div v-if="!getIsShowMusicPlayer" :class="['music-disc', getIsPaused ? 'music-left' : '']">
-    <img
-      @click="toggleDisc"
-      :class="['music-img', getIsToggleImg ? '' : 'disc-rotate', getIsPaused ? 'paused' : '']"
-      :src="getMusicDescription?.al?.picUrl || blogAvatar"
-      alt="music cover"
-    />
+    <img @click="toggleDisc" :class="['music-img', getIsToggleImg ? '' : 'disc-rotate', getIsPaused ? 'paused' : '']"
+      :src="getMusicDescription?.al?.picUrl || blogAvatar" alt="music cover" />
     <div class="info-box">
       <div class="info">
         <div class="text-sm whitespace-nowrap">
@@ -124,10 +109,8 @@ window.addEventListener("beforeunload", () => {
           {{ getMusicDescription?.ar[0]?.name || "歌手走丢了" }}
         </div>
       </div>
-      <i
-        :class="['change-color', 'iconfont', getIsPaused ? 'icon-zanting' : 'icon-bofangzhong ']"
-        @click="playMusic"
-      ></i>
+      <i :class="['change-color', 'iconfont', getIsPaused ? 'icon-zanting' : 'icon-bofangzhong ']"
+        @click="playMusic"></i>
     </div>
   </div>
 </template>
@@ -163,6 +146,7 @@ window.addEventListener("beforeunload", () => {
     max-width: 1024px;
   }
 }
+
 .icon-off-search {
   position: absolute;
   top: 8px;
@@ -205,6 +189,7 @@ window.addEventListener("beforeunload", () => {
   z-index: 2002;
   cursor: pointer;
   transition: left 0.2s;
+
   .music-img {
     width: 50px;
     height: 50px;
@@ -236,6 +221,7 @@ window.addEventListener("beforeunload", () => {
 .paused {
   animation-play-state: paused;
 }
+
 // pc
 @media screen and (min-width: 768px) {
   .music-disc {
@@ -253,10 +239,12 @@ window.addEventListener("beforeunload", () => {
 
   .music-disc:hover {
     left: 0;
+
     .info-box {
       width: 100%;
       padding-right: 10px;
     }
+
     .info {
       padding-right: 5px;
     }
@@ -289,6 +277,7 @@ window.addEventListener("beforeunload", () => {
       border-radius: 20px;
     }
   }
+
   .music-left {
     left: -25px;
   }
@@ -301,6 +290,7 @@ window.addEventListener("beforeunload", () => {
   .icon-off-search {
     top: 5px;
   }
+
   .close-board {
     top: 35px;
   }

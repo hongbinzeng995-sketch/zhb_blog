@@ -25,6 +25,14 @@ const routes = [
         component: () => import("@/views/home/home.vue"),
       },
       {
+        path:"/video",
+        name:"Video",
+        meta:{
+          name:"视频"
+        },
+        component: () => import ("@/views/video/video.vue")
+      },
+      {
         path: "/archives",
         name: "Archives",
         meta: {

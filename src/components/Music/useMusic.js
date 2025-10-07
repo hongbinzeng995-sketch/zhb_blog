@@ -1,6 +1,4 @@
 /*
- * @author: Zhang Yuming
- * @date: 2024-04-02 11:48:51
  * @description: 音乐状态
  */
 

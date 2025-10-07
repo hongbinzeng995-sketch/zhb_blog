@@ -16,14 +16,10 @@ defineProps({
 </script>
 
 <template>
-  <div
-    class="glitch"
-    :style="{
-      fontSize: size + 'rem',
-      fontWeight: isSpecial ? '300' : '',
-    }"
-    :data-text="title"
-  >
+  <div class="glitch" :style="{
+    fontSize: size + 'rem',
+    fontWeight: isSpecial ? '300' : '',
+  }" :data-text="title">
     {{ title }}
   </div>
 </template>

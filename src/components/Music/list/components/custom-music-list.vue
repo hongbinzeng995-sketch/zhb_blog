@@ -80,24 +80,20 @@ watch(
         </el-row>
         <el-row class="body">
           <div style="width: 100%" v-if="getCustomerMusicList.length">
-            <el-col
-              class="flex justify-start items-center overflow-auto"
-              :span="24"
-              v-for="item in getCustomerMusicList"
-              :key="item.id"
-            >
+            <el-col class="flex justify-start items-center overflow-auto" :span="24"
+              v-for="item in getCustomerMusicList" :key="item.id">
               <div class="name" @click="playMusic(item)">
                 <span class="text-overflow" :title="item.name">{{ item.name }}</span>
               </div>
               <div class="author">
                 <span class="text-overflow" :title="returnAuthor(item)">{{
                   returnAuthor(item)
-                }}</span>
+                  }}</span>
               </div>
               <div class="other">
                 <span class="text-overflow" :title="returnOther(item)">{{
                   returnOther(item)
-                }}</span>
+                  }}</span>
               </div>
               <div class="delete-music">
                 <svg-icon name="delete" width="1rem" @click="customerDeleteMusic(item)"></svg-icon>
@@ -122,21 +118,27 @@ watch(
     position: relative;
     overflow: auto;
     width: 100%;
+
     .header {
       width: 100%;
       display: flex;
+
       .title {
         font-weight: 600;
         font-size: 1.1rem;
+
         &1 {
           width: 30%;
         }
+
         &2 {
           width: 30%;
         }
+
         &3 {
           width: 25%;
         }
+
         &4 {
           text-align: center;
           width: 15%;
@@ -170,6 +172,7 @@ watch(
   .delete-music {
     width: 15%;
     text-align: center;
+
     &:hover {
       transform: scale(1.1);
     }

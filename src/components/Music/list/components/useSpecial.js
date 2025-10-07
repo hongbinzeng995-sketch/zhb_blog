@@ -1,3 +1,6 @@
+/**
+ * 特殊定制功能
+ */
 import { ref } from "vue";
 function useSpecialHooks() {
   const specialTitleSize = ref(2.4);

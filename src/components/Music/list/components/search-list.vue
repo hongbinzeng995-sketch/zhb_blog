@@ -142,30 +142,23 @@ const searchSingerSongs = async (type) => {
               <div class="title title3">操作</div>
             </el-col>
           </el-row>
-          <el-col
-            class="flex justify-start items-center overflow-auto"
-            :span="24"
-            v-for="item in keyWordsSongs"
-            :key="item.id"
-          >
+          <el-col class="flex justify-start items-center overflow-auto" :span="24" v-for="item in keyWordsSongs"
+            :key="item.id">
             <div class="name" @click="playMusic(item)">
               <span class="text-overflow" :title="item.name">{{ item.name }}</span>
             </div>
             <div class="author">
               <span class="text-overflow" :title="returnAuthors(item.artists, 'name')">{{
                 returnAuthors(item.artists, "name")
-              }}</span>
+                }}</span>
             </div>
             <div class="add-music">
-              <i
-                :class="[
-                  'iconfont',
-                  'icon-tianjiadao',
-                  'change-color',
-                  item.active ? 'active' : '',
-                ]"
-                @click="customerAddMusic(item)"
-              ></i>
+              <i :class="[
+                'iconfont',
+                'icon-tianjiadao',
+                'change-color',
+                item.active ? 'active' : '',
+              ]" @click="customerAddMusic(item)"></i>
             </div>
           </el-col>
           <div class="observe" @click="searchSingerSongs('loadMore')">
@@ -212,15 +205,19 @@ const searchSingerSongs = async (type) => {
 
     .header {
       display: flex;
+
       .title {
         font-weight: 600;
         font-size: 1.1rem;
+
         &1 {
           width: 40%;
         }
+
         &2 {
           width: 45%;
         }
+
         &3 {
           width: 15%;
         }
@@ -247,6 +244,7 @@ const searchSingerSongs = async (type) => {
 
   .add-music {
     width: 15%;
+
     &:hover {
       color: var(--music-main-active);
     }
@@ -274,12 +272,14 @@ const searchSingerSongs = async (type) => {
     align-items: center;
   }
 }
+
 :deep(.el-input-group__append) {
   color: #fff;
   background-color: var(--music-main-active);
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
+
 .observe {
   display: flex;
   justify-content: center;

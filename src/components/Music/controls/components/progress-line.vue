@@ -1,6 +1,4 @@
 <!--
-* @Author: Zhang Yuming
-* @Date: 2023-07-03 11:48:31
 * @Description: 音乐进度组件
 -->
 <script setup>
@@ -46,6 +44,7 @@ watch(
   position: relative;
   width: 100%;
 }
+
 .iconfont {
   font-size: 1.5rem;
   font-weight: bold;

@@ -37,6 +37,7 @@ defineComponent({
   display: flex;
   justify-content: center;
   background-color: var(--music-main-bg);
+
   .main {
     width: 100%;
     display: flex;
@@ -44,9 +45,11 @@ defineComponent({
     justify-content: center;
     align-items: center;
   }
+
   .music-header {
     width: 100%;
   }
+
   .music-body {
     box-sizing: border-box;
     width: 100%;
@@ -54,6 +57,7 @@ defineComponent({
     justify-content: space-between;
     align-items: center;
     padding: 8px 3rem 5px 3rem;
+
     &__left {
       width: 33%;
     }
@@ -77,6 +81,7 @@ defineComponent({
 
   .music-body {
     padding: 8px 1rem 0px 1rem !important;
+
     &__left {
       width: 30% !important;
     }

@@ -92,9 +92,9 @@ const scrollToMiddle = (duration = 0) => {
 
       let h = current
         ? current.offsetTop -
-          Math.round(lyricBox.clientHeight / 2) +
-          Math.round(current.offsetHeight / 2) +
-          -30
+        Math.round(lyricBox.clientHeight / 2) +
+        Math.round(current.offsetHeight / 2) +
+        -30
         : 0;
 
       lyricBox &&
@@ -306,41 +306,28 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div
-    :class="['lyric-mask', getShowLyricBoard ? 'lyric-mask-show' : 'lyric-mask-hide']"
-    :style="{
-      background: replaceUrl ? '' : bg ? '#000' : '',
-      backgroundImage:
-        getLyricType == 'SPECIAL'
-          ? `url(${replaceUrl || bg || getMusicDescription.al.picUrl})`
-          : '',
-    }"
-  >
-    <div
-      v-if="getLyricType == 'SPECIAL'"
-      class="special-mask"
-      :style="{ backgroundColor: `rgba(0,0,0, ${brightness})` }"
-    ></div>
-    <div
-      v-show="getLyricType == 'COMMON'"
-      class="!w-[100%] !h-[100%] flex justify-between items-center"
-    >
+  <div :class="['lyric-mask', getShowLyricBoard ? 'lyric-mask-show' : 'lyric-mask-hide']" :style="{
+    background: replaceUrl ? '' : bg ? '#000' : '',
+    backgroundImage:
+      getLyricType == 'SPECIAL'
+        ? `url(${replaceUrl || bg || getMusicDescription.al.picUrl})`
+        : '',
+  }">
+    <div v-if="getLyricType == 'SPECIAL'" class="special-mask"
+      :style="{ backgroundColor: `rgba(0,0,0, ${brightness})` }"></div>
+    <div v-show="getLyricType == 'COMMON'" class="!w-[100%] !h-[100%] flex justify-between items-center">
       <div class="left">
         <div class="text-4xl font-semibold">
           {{ getMusicDescription?.name }}
         </div>
         <div class="disc-box">
-          <img
-            :class="[
-              'music-img',
-              'animate__animated',
-              'animate__fadeIn',
-              getIsToggleImg ? '' : 'disc-rotate',
-              getIsPaused ? 'paused' : '',
-            ]"
-            :src="getMusicDescription?.al?.picUrl"
-            @click="fullScreen"
-          />
+          <img :class="[
+            'music-img',
+            'animate__animated',
+            'animate__fadeIn',
+            getIsToggleImg ? '' : 'disc-rotate',
+            getIsPaused ? 'paused' : '',
+          ]" :src="getMusicDescription?.al?.picUrl" @click="fullScreen" />
         </div>
       </div>
 
@@ -351,38 +338,25 @@ onBeforeUnmount(() => {
               {{ getMusicDescription?.name }}
             </div>
           </div>
-          <div
-            :id="getCurrentLyricIndex == index ? 'getCurrentLyricIndex' : ''"
+          <div :id="getCurrentLyricIndex == index ? 'getCurrentLyricIndex' : ''"
             :class="['lyric-word', getCurrentLyricIndex == index ? 'current' : '']"
-            v-for="(item, index) in getMusicInfo.lyricList"
-            :key="index"
-            @click="goToIndex(index)"
-          >
+            v-for="(item, index) in getMusicInfo.lyricList" :key="index" @click="goToIndex(index)">
             {{ item }}
           </div>
         </div>
       </div>
     </div>
-    <div
-      v-show="getLyricType == 'SPECIAL'"
-      class="special !w-[100%] !h-[100%] flex flex-col justify-center items-center"
-    >
+    <div v-show="getLyricType == 'SPECIAL'"
+      class="special !w-[100%] !h-[100%] flex flex-col justify-center items-center">
       <div class="special-title">
         <div class="flex items-center justify-center">
           <span class="small-action" @click="changeSpecialTitleSize(false)"></span>
-          <SpecialTitle
-            :size="specialTitleSize"
-            :title="getMusicDescription?.name"
-            :is-special="!!bg"
-            @click="fullScreen"
-          />
+          <SpecialTitle :size="specialTitleSize" :title="getMusicDescription?.name" :is-special="!!bg"
+            @click="fullScreen" />
           <span class="small-action" @click="changeSpecialTitleSize(true)"></span>
         </div>
 
-        <div
-          class="author"
-          :style="{ fontSize: authorName + 'rem', fontWeight: !!bg ? '300' : '' }"
-        >
+        <div class="author" :style="{ fontSize: authorName + 'rem', fontWeight: !!bg ? '300' : '' }">
           <span class="small-action" @click="changeAuthorSize(false)"></span>
           <span @click="changeBrightness(false)">{{ getMusicDescription?.ar[0]?.name }}</span>
           <span class="small-action" @click="changeAuthorSize(true)"></span>
@@ -390,10 +364,7 @@ onBeforeUnmount(() => {
       </div>
       <div class="flex justify-center items-start">
         <span class="small-action" @click="changeLyricFontSize(false)"></span>
-        <span
-          class="special-lyric"
-          :style="{ fontSize: specialLyricSize + 'rem', fontWeight: !!bg ? '300' : '' }"
-        >
+        <span class="special-lyric" :style="{ fontSize: specialLyricSize + 'rem', fontWeight: !!bg ? '300' : '' }">
           {{ getMusicInfo.lyricList[getCurrentLyricIndex] }}
         </span>
         <span class="small-action" @click="changeLyricFontSize(true)"></span>
@@ -401,21 +372,15 @@ onBeforeUnmount(() => {
     </div>
 
     <div class="bottom-control" @mouseenter="mouseEnter" @mouseleave="mouseLeave">
-      <div
-        :class="[
-          'control',
-          getLyricType == 'COMMON' || isMobile || getIsPaused || showControl
-            ? 'show-control'
-            : 'hide-control',
-        ]"
-      >
+      <div :class="[
+        'control',
+        getLyricType == 'COMMON' || isMobile || getIsPaused || showControl
+          ? 'show-control'
+          : 'hide-control',
+      ]">
         <div class="close-board">
           <i class="iconfont icon-arrowdown change-color mr-[10px]" @click="closeBoard"></i>
-          <i
-            v-show="getLyricType == 'SPECIAL'"
-            class="iconfont icon-paper change-color"
-            @click="toSetProfessional"
-          ></i>
+          <i v-show="getLyricType == 'SPECIAL'" class="iconfont icon-paper change-color" @click="toSetProfessional"></i>
         </div>
         <div class="control-group">
           <i class="iconfont icon-shangyiqu change-color" @click="prev"></i>
@@ -425,29 +390,15 @@ onBeforeUnmount(() => {
         </div>
         <div class="toggle-type">
           <span class="type-btn mr-[10px]" v-show="getLyricType == 'SPECIAL'">
-            <el-upload
-              v-model:file-list="fileList"
-              action="#"
-              :multiple="false"
-              :auto-upload="false"
-              :show-file-list="false"
-              :on-change="replaceImage"
-            >
+            <el-upload v-model:file-list="fileList" action="#" :multiple="false" :auto-upload="false"
+              :show-file-list="false" :on-change="replaceImage">
               <i class="iconfont icon-icon-test2"></i>
             </el-upload>
           </span>
-          <span
-            class="type-btn mr-[10px]"
-            v-show="getLyricType == 'SPECIAL'"
-            @click="toggleLyricType('COMMON')"
-            ><i class="iconfont icon-icon-test1"
-          /></span>
-          <span
-            class="type-btn mr-[10px]"
-            v-show="getLyricType == 'COMMON'"
-            @click="toggleLyricType('SPECIAL')"
-            ><i class="iconfont icon-icon-test"
-          /></span>
+          <span class="type-btn mr-[10px]" v-show="getLyricType == 'SPECIAL'" @click="toggleLyricType('COMMON')"><i
+              class="iconfont icon-icon-test1" /></span>
+          <span class="type-btn mr-[10px]" v-show="getLyricType == 'COMMON'" @click="toggleLyricType('SPECIAL')"><i
+              class="iconfont icon-icon-test" /></span>
           <i class="iconfont icon-off-search change-color" @click="toggleDisc"></i>
         </div>
       </div>
@@ -498,11 +449,13 @@ onBeforeUnmount(() => {
     justify-content: center;
     overflow: auto;
     scrollbar-width: none;
+
     &::-webkit-scrollbar {
       display: none;
     }
   }
 }
+
 .special {
   &-title {
     text-align: center;
@@ -595,6 +548,7 @@ onBeforeUnmount(() => {
     transform: translateY(-50%);
     display: flex;
     align-items: center;
+
     .type-btn {
       cursor: pointer;
       color: var(--global-white);
@@ -614,6 +568,7 @@ onBeforeUnmount(() => {
   .icon-bofangzhong {
     font-size: 2.8rem;
   }
+
   .change-color:hover {
     cursor: pointer;
     color: var(--music-main-active);
@@ -624,13 +579,16 @@ onBeforeUnmount(() => {
   display: flex;
   animation: showBoard 0.3s ease-in-out forwards;
 }
+
 .lyric-mask-hide {
   animation: hideBoard 0.3s ease-in-out forwards;
 }
+
 @keyframes showBoard {
   0% {
     top: 100%;
   }
+
   100% {
     top: 0;
   }
@@ -641,6 +599,7 @@ onBeforeUnmount(() => {
     top: 0;
     display: block;
   }
+
   100% {
     top: 100%;
     display: none;
@@ -702,6 +661,7 @@ onBeforeUnmount(() => {
     top: 50%;
     transform: translate(-50%, -50%);
   }
+
   .music-img {
     width: 20rem;
     height: 20rem;
@@ -720,6 +680,7 @@ onBeforeUnmount(() => {
     transform: rotate(360deg);
   }
 }
+
 .lyric-word {
   text-align: center;
   line-height: 2;
@@ -728,6 +689,7 @@ onBeforeUnmount(() => {
   transition: all 0.3s;
   opacity: 0.5;
 }
+
 .current {
   font-size: 1.3rem;
   font-weight: bold;
@@ -740,6 +702,7 @@ onBeforeUnmount(() => {
     .right {
       width: 100%;
     }
+
     .left {
       display: none;
     }

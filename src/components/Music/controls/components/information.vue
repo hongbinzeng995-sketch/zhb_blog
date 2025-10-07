@@ -1,9 +1,6 @@
 <!--
- * @Author: Zhang Yuming
- * @Date: 2023-07-03 11:48:12
- * @Description: 展示歌信息
+  * @Description: 展示歌信息
  -->
-
 <script setup>
 import { defineComponent, inject } from "vue";
 
@@ -20,15 +17,11 @@ const { getShowLyricBoard, getMusicDescription, getIsToggleImg, getIsPaused } = 
 <template>
   <!-- 唱片展示 -->
   <div class="music-info">
-    <img
-      :class="[
-        'music-img',
-        getIsToggleImg ? '' : 'disc-rotate',
-        getIsPaused ? 'paused' : 'running',
-      ]"
-      @click="musicSetters.setShowLyricBoard(!getShowLyricBoard)"
-      :src="getMusicDescription.al.picUrl"
-    />
+    <img :class="[
+      'music-img',
+      getIsToggleImg ? '' : 'disc-rotate',
+      getIsPaused ? 'paused' : 'running',
+    ]" @click="musicSetters.setShowLyricBoard(!getShowLyricBoard)" :src="getMusicDescription.al.picUrl" />
     <div class="music-desc">
       <div class="music-name">
         {{ getMusicDescription.name }}
@@ -46,12 +39,14 @@ const { getShowLyricBoard, getMusicDescription, getIsToggleImg, getIsPaused } = 
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+
   .music-img {
     width: 60px;
     height: 60px;
     border-radius: 30px;
     object-fit: cover;
   }
+
   .music-desc {
     margin-left: 0.5rem;
 
@@ -81,6 +76,7 @@ const { getShowLyricBoard, getMusicDescription, getIsToggleImg, getIsPaused } = 
 .running {
   animation-play-state: running;
 }
+
 .paused {
   animation-play-state: paused;
 }
