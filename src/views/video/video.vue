@@ -28,8 +28,8 @@ import PageHeader from "@/components/PageHeader/index.vue";
 // const commentRef = ref(null);
 // const commentIsOpen = ref(false);
 
-// const router = useRouter();
-// const route = useRoute();
+const router = useRouter();
+const route = useRoute();
 // 初始化pinia
 // const staticStore = staticData();
 // const userStore = user();
@@ -207,7 +207,7 @@ const loading = ref(false);
 
 <template>
     <PageHeader :article="articleInfo" :loading="loading" />
-    <div class="video">视频视频视频</div>
+    <div class="video"></div>
 </template>
 
 <style lang="scss" scoped>

@@ -30,6 +30,16 @@ const routes = [
         meta:{
           name:"视频"
         },
+        children:[
+          {
+          path:"/video/videoDetail",
+          name:"VideoDetail",
+          meta:{
+            name:"视频详情"
+          },
+          components:() => import ("@/views/video/videoDetail.vue")
+          }
+        ],
         component: () => import ("@/views/video/video.vue")
       },
       {
