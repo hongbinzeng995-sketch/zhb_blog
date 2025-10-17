@@ -131,6 +131,8 @@ onBeforeUnmount(() => {
           <el-menu-item index="/talk"><i class="iconfont icon-speechbubble"></i> 说说</el-menu-item>
           <el-menu-item index="/link/list"><i class="iconfont icon-pengyouquan"></i> 友链</el-menu-item>
           <el-menu-item index="/message/list"><i class="iconfont icon-liuyan"></i> 留言</el-menu-item>
+          <!-- 添加视频入口 -->
+          <el-menu-item index="/video"><i class="iconfont icon-speechbubble"></i>视频</el-menu-item>
           <el-menu-item index="/login" v-if="!getUserInfo.id"><i class="iconfont icon-timerauto"></i> 登录</el-menu-item>
           <div v-else class="user flex justify-center items-center">
             <el-sub-menu index="/#">
